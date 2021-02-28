@@ -1,4 +1,4 @@
-# FrePPle Template
+# FrePPLe Template
 
 ## Table of Contents
 * [Installation](#Installation)

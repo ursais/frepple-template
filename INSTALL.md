@@ -1,4 +1,4 @@
-# Installation of FrePPle
+# Installation of FrePPLe
 
 ## Table of Contents
 * [Requirements](#Requirements)
@@ -19,7 +19,7 @@ Clone this repository and push it to `frepple-project`
 
 Create the project:
 ```shell script
-oc new-project frepple-project-dev --display-name="FrePPle Project Dev"
+oc new-project frepple-project-dev --display-name="FrePPLe Project Dev"
 ```
 Add permissions to the default Service Account of the project:
 ```shell script
@@ -51,7 +51,7 @@ Click `Add webhook`.
 
 Create the project:
 ```shell script
-oc new-project frepple-project-test --display-name="FrePPle Project Test"
+oc new-project frepple-project-test --display-name="FrePPLe Project Test"
 ```
 Add permissions to the default Service Account of the project:
 ```shell script
@@ -72,7 +72,7 @@ helm install frepple -f helm/frepple/values.test.yaml helm/frepple
 
 Create the project:
 ```shell script
-oc new-project frepple-project-qa --display-name="FrePPle Project QA"
+oc new-project frepple-project-qa --display-name="FrePPLe Project QA"
 ```
 Add permissions to the default Service Account of the project:
 ```shell script
@@ -93,7 +93,7 @@ helm install frepple -f helm/frepple/values.qa.yaml helm/frepple
 
 Create the project:
 ```shell script
-oc new-project frepple-project --display-name="FrePPle Project Production"
+oc new-project frepple-project --display-name="FrePPLe Project Production"
 ```
 Add permissions to the default Service Account of the project:
 ```shell script
