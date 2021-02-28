@@ -12,7 +12,7 @@ services:
       - 'postgres-data:/var/lib/postgresql/data/pgdata'
 
   frepple:
-    build: .
+    image: ursa/frepple-6:latest
     ports:
       - '80:80'
     depends_on:
