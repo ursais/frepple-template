@@ -11,10 +11,10 @@ services:
     volumes:
       - 'postgres-data:/var/lib/postgresql/data/pgdata'
 
-  frepple:
-    image: ursa/frepple-6:latest
+  app:
+    build: ./frepple
     ports:
-      - '80:80'
+      - '8080:80'
     depends_on:
       - db
     environment:
@@ -22,6 +22,11 @@ services:
       - PGUSER=frepple
       - PGPASSWORD=frepple
       - PGDATABASE=frepple
+      - FREPPLE_ADMIN_NAME="Open Source Integrators"
+      - FREPPLE_ADMIN_EMAIL="support@opensourceintegrators.com"
+      - FREPPLE_INSTALLED_APPS_FORECASTING=true
+      - FREPPLE_INSTALLED_APPS_INVENTORY=true
+      - FREPPLE_INSTALLED_APPS_ODOO=true
 
 volumes:
   postgres-data:
