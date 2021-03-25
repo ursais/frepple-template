@@ -12,8 +12,7 @@ services:
       - 'postgres-data:/var/lib/postgresql/data/pgdata'
 
   app:
-    build:
-      context: frepple
+    image: docker.pkg.github.com/ursais/frepple-template/frepple-6:latest
     ports:
       - '8080:80'
     depends_on:
