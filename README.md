@@ -1,89 +1,43 @@
-# FrePPLe Template
+# FrePPLe Project
 
 ## Table of Contents
-* [Installation](#Installation)
-* [Setup your environment](#Setup-your-environment)
-* [How to contribute](#How-to-contribute)
-	* [New Version](#New-Version)
-	* [Add a new private module](#Add-a-new-private-module)
-	* [Add an existing public module](#Add-an-existing-public-module)
-	* [Add a new public module](#Add-a-new-public-module)
-	* [Update data or configuration](#Update-data-or-configuration)
-* [How to build](#How-to-build)
-* [How to test](#How-to-test)
-* [How to publish](#How-to-publish)
-* [How to release](#How-to-release)
-* [Tests](#Tests)
+* [Development](#Development)
+  * [Prerequisites](#Prerequisites)
+  * [Build](#Build)
+  * [Run](#Run)
+  * [Test](#Test)
+* [Operations](#Operations)
 * [Support](#Support)
 
-## Installation
+## Development
 
-See [INSTALL](./INSTALL.md).
+### Prerequisites
 
-## Setup your environment
-
-Run
-```shell script
-sudo apt install python3-venv
-python3 -m venv env
-. env/bin/activate
-pip install -r requirements.txt
-pre-commit install
+```shell
+apt install docker-compose git
+cd /opt
+git clone https://github.com/ursais/frepple-template frepple
 ```
 
-## How to contribute
+### Build
 
-### New Version
-
-* Coming soon...
-
-### Update data or configuration
-
-* Coming soon...
-
-## How to build
-
-Build locally with:
-```shell script
+```shell
 docker-compose build
 ```
 
-## How to test
+### Run
 
-Test locally with:
-```shell script
+```shell
 docker-compose up
 ```
-and go to http://localhost
 
-## How to publish
-
-Commit your changes
-
-Push them to the repository
-
-Create a pull/merge request to the master branch
-
-## How to release
-
-Tag an image in the stream:
-```shell script
-oc project frepple-project-dev
-oc tag frepple:latest frepple:20210301
-```
-
-Update the DeploymentConfig to change the tag:
-```shell script
-oc project frepple-project-test
-oc edit dc frepple
-        [...]
-        kind: ImageStreamTag
-        name: frepple:20210301
-```
-
-## Tests
+### Test
 
 * Coming soon...
+
+## Operations
+
+Take a look at [helm/README.md](./helm/README.md)
 
 ## Support
 
