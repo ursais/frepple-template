@@ -1,0 +1,78 @@
+## Database external to the cluster
+externalDatabase:
+  host:
+  user: doadmin
+  port: 25060
+  defaultdb: defaultdb
+
+## Database in the cluster
+postgresql:
+  enabled: false
+  postgresqlUsername: frepple
+  defaultdb: postgres
+  persistence:
+    enabled: true
+    accessMode: ReadWriteOnce
+    size: 4Gi
+
+service:
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster
+
+build:
+  enabled: true
+  source_repository_url: https://github.com/ursais/frepple-template.git
+  source_repository_ref: master
+  context_dir: frepple
+
+mailhog:
+  enabled: True
+
+postfix:
+  enabled: False
+
+smtp:
+  enabled: True
+  ssl: False
+  user: False
+
+resources:
+  limits:
+    cpu: "1"
+    memory: 4Gi
+  requests:
+    cpu: 300m
+    memory: 2Gi
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 600
+  periodSeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+affinity: {}
+
+name: frepple
+fullname: "FrePPLe Dev Template"
+project: frepple-template
+environment: dev, test, qa or production
+platform: aws, azure or do
+distribution: kubernetes or openshift
+application_domain: https://frepple.example.com
+image: docker.pkg.github.com/ursais/frepple-template/frepple-template:latest
+admin_name: "Open Source Integrators"
+admin_email: "support@opensourceintegrators.com"
+installed_apps_custom: "'customer',"
+installed_apps_forecasting: true
+installed_apps_inventory: true
+installed_apps_odoo: true
