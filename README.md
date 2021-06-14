@@ -1,4 +1,4 @@
-# Template Project
+# FrePPLe Project
 
 ## Table of Contents
 * [Development](#Development)
@@ -33,7 +33,7 @@ docker-compose up
 
 ### Test
 
-*
+* Coming soon...
 
 ## Operations
 
