@@ -1,0 +1,32 @@
+name: Deploy
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DOCKER_BUILDKIT: 1
+  IMAGE_NAME: frepple-6
+  TAG: latest
+  REGISTRY: ???.dkr.ecr.us-east-1.amazonaws.com
+  REGION: us-east-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: 'Build image'
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ env.TAG }} frepple
+
+      - name: 'Push to registry'
+        uses: jwalton/gh-ecr-push@v1
+        with:
+          access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: ${{ env.REGION }}
+          image: ${{ env.IMAGE_NAME }}:${{ env.TAG }}

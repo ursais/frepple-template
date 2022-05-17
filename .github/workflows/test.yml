@@ -1,0 +1,17 @@
+name: Test
+on:
+  pull_request:
+
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'Build'
+        uses: sudo-bot/action-docker-compose@latest
+        with:
+          cli-args: "build"
